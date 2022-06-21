@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Email de cliente</th>
+                <th scope="col">Cantidad Origen</th>
+                <th scope="col">De <select [(ngModel)]="de" (ngModelChange)="filtro()" class="form-select"
+                        aria-label="Default select example" id="ca" name="a2">
+                        <option value="">Todas</option>
+                        <option *ngFor="let item of list" value="{{item}}">{{item}}</option>
+
+                    </select></th>
+                <th scope="col">A <select [(ngModel)]="a" (ngModelChange)="filtro()" class="form-select"
+                        aria-label="Default select example" id="fa" name="a1">
+                        <option value="">Todas</option>
+                        <option *ngFor="let item of list" value="{{item}}">{{item}}</option>
+
+                    </select></th>
+                <th scope="col">Cantidad Destino</th>
+                <th scope="col">Tasa de Conversion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of transacciones">
+                <th> {{i.emailCliente}} </th>
+                <th> {{i.cantidadOrigen}} </th>
+                <td>{{i.monedaOrigen}}</td>
+                <td>{{i.monedaDestino}}</td>
+                <th> {{i.cantidadDestino}} </th>
+                <th> {{i.tasaConversion}} </th>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

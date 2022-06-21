@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+        <div class=" offset-4 col-md-4 col-sm-12 mt-3">
+            <form class="border p-5">
+                <h4>Gestor de Transacciones</h4>
+                <div class="mb-3">
+                    <label for="em" class="form-label">Email</label>
+                    <input [(ngModel)]="transaccion.emailCliente" name="a" type="email" class="form-control" id="em">
+                </div>
+                <div class="mb-3">
+                    <label for="cantidad" class="form-label">Cantidad</label>
+                    <input [(ngModel)]="transaccion.cantidadOrigen" name="q" type="text" class="form-control"
+                        id="cantidad">
+                </div>
+                <div class="mb-3">
+                    <label for="de" class="form-label">De</label>
+                    <select [(ngModel)]="transaccion.monedaOrigen" name="from" id="de" class="form-select"
+                        aria-label="Default select example">
+                        <option *ngFor="let item of list" value="{{item}}">{{item}}</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="a" class="form-label">A</label>
+                    <select [(ngModel)]="transaccion.monedaDestino" name="to" id="a" class="form-select"
+                        aria-label="Default select example">
+                        <option *ngFor="let item of list" value="{{item}}">{{item}}</option>
+                    </select>
+                </div>
+                <button (click)="convertir()" type="submit" class="btn btn-primary">Guardar</button>
+
+                <input [(ngModel)]="transaccion.cantidadDestino" [disabled]="!transaccion.cantidadDestino" name="r"
+                    type="number" class="mt-2 form-control" id="r">
+            </form>
+        </div>
+    </div>
+</div>

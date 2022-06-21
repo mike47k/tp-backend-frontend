@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="row">
+        <div class="offset-3 col-6 ">
+
+            <form class="mt-3 p-5 border">
+                <h2>Crear Libro</h2>
+                <div class="mb-3">
+                    <label for="titulo" class="form-label">Titulo</label>
+                    <input type="text" class="form-control" id="titulo" required name="titulo"
+                        [(ngModel)]="libro.titulo" #titulo="ngModel">
+                    <div *ngIf="titulo.invalid && (titulo.dirty || titulo.touched)" class="alert alert-danger">
+                        <div *ngIf="titulo.errors">
+                            Titulo es requerido.
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="descripcion" class="form-label">Descripcion</label>
+                    <input type="text" class="form-control" id="descripcion" required name="desc"
+                        [(ngModel)]="libro.descripcion" #desc="ngModel">
+                    <div *ngIf="desc.invalid && (desc.dirty || desc.touched)" class="alert alert-danger">
+                        <div *ngIf="desc.errors">
+                            Descripcion es requerido.
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="imagen" class="form-label">Imagen URL</label>
+                    <input type="text" class="form-control" id="imagen" required name="img" #img="ngModel"
+                        [(ngModel)]="libro.imagen">
+                    <div *ngIf="img.invalid && (img.dirty || img.touched)" class="alert alert-danger">
+                        <div *ngIf="img.errors">
+                            Imagen es requerido.
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="stock" class="form-label">Stock</label>
+                    <input type="number" class="form-control" id="stock" required #stock="ngModel" name="stock"
+                        [(ngModel)]="libro.stock">
+                    <div *ngIf="stock.invalid && (stock.dirty || stock.touched)" class="alert alert-danger">
+                        <div *ngIf="stock.errors">
+                            Stock es requerido.
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" name="destacado" id="exampleCheck1"
+                        [(ngModel)]="libro.destacado">
+                    <label class="form-check-label" for="exampleCheck1">Destacado</label>
+                </div>
+
+                <button type="button" class="btn btn-primary" (click)="guardarLibro()">Guardar</button>
+            </form>
+        </div>
+    </div>
+</div>

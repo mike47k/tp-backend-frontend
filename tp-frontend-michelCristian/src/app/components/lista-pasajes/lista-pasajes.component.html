@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Dni Pasajero</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Categoria<select [(ngModel)]="cat" (ngModelChange)="obtenerPorCategoria()"
+                            class="form-select" aria-label="Default select example" id="ca" name="a2">
+                            <option value="">Todo</option>
+                            <option value="m">Menor</option>
+                            <option value="a">Adulto</option>
+                            <option value="j">Jubilado</option>
+
+                        </select></th>
+                    <th scope="col">Fecha de compra</th>
+                    <th scope="col">Operaciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let i of pasajes">
+                    <td>{{i.pasajero?.nro_documento}}</td>
+                    <td>{{i.precioPasaje |currency:'ARS ':true:'1.1-2'}}</td>
+                    <td> {{i.categoriaPasajero}} </td>
+                    <td> {{i.fechaCompra | date:'dd/MM/yyyy'}} </td>
+                    <td>
+                        <button type="button" (click)="editar(i._id)" class="btn btn-success">Editar</button>
+                        <button (click)="eliminarPasaje(i._id)" type="button" class="btn btn-danger">Eliminar</button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
